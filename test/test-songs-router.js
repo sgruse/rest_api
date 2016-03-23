@@ -8,6 +8,8 @@ let request = chai.request
 let expect = require('chai').expect
 let url = require('url')
 let fs = require('fs')
+let mongoose = require('mongoose')
+process.env.MONGO_LAB_URI = 'mongodb://localhost/testdb';
 
 let Songs = require(__dirname + '/../models/songs-model')
 

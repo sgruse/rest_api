@@ -3,17 +3,19 @@
 let express = require('express')
 let app = express()
 let apiRouter = express.Router()
+let publicRouter = express.Router()
 var url = require('url')
 let bodyParser = require('body-parser')
-let config = require('./config/environment')
 let mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/db')
+mongoose.connect(process.env.MONGO_LAB_URI || 'mongodb://localhost/db')
 
 // Artist route
 require('./routes/artists-route')(apiRouter)
 
 // Songs route
 require('./routes/songs-route')(apiRouter)
+
+// Create User
 
 app.use(bodyParser.json())
 app.use('/', apiRouter, (req, res) => {
