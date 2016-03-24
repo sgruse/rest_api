@@ -1,15 +1,15 @@
 'use strict'
 
 // Schema/Models
-let Songs = require(__dirname + '/../models/songs-model')
+let Songs = require(__dirname + '/../models/songs-model');
 
 module.exports = (apiRouter) => {
   apiRouter.route('/songs')
   .get((req, res) => {
     Songs.find({}, (err, songs) => {
       res.type('json')
-      res.json(songs)
       res.status(200)
+      res.json(songs)
       res.end()
     })
   })

@@ -1,7 +1,7 @@
 'use strict'
 
 // Schema/Models
-let Artists = require(__dirname + '/../models/artists-model')
+let Artists = require(__dirname + '/../models/artists-model');
 
 module.exports = (apiRouter) => {
   apiRouter.route('/artists')
