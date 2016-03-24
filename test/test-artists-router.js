@@ -122,3 +122,9 @@ describe('Testing alternate endpoint that will get the most frequently occurring
     })
   })
 })
+after((done) => {
+  newUserToken = '';
+  mongoose.connection.db.dropDatabase(() => {
+    done();
+  })
+})

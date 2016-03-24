@@ -26,7 +26,7 @@ it('Should create a new user', (done) => {
   .post('/public/createUser')
   .send('{"name":"Bob", "password":"dob"}')
   .end((err, res) => {
-    expect(err).to.eql(null)
+    expect(res).to.be.a('object')
     done();
   })
 })
@@ -39,7 +39,6 @@ it('Should find my new user in the database and send back a user token', (done) 
     expect(err).to.eql(null)
     expect(res.body).to.have.property('token')
     newUserToken = res.body.token;
-    // console.log('MOCHA TOKEN : ', newUserToken);
     done();
   })
 })

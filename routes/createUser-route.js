@@ -12,7 +12,9 @@ module.exports = (publicRouter) => {
       User.findOne({name: username}, (err, data) => {
         if (data) {
           console.log('Not a valid username')
+          res.status(404)
           res.json({msg: 'Not a valid username'})
+          res.end();
         }
         if (data == null) {
           newUser.save((err, user) => {

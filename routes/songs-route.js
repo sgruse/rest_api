@@ -7,6 +7,11 @@ module.exports = (apiRouter) => {
   apiRouter.route('/songs')
   .get((req, res) => {
     Songs.find({}, (err, songs) => {
+      if(err) {
+        res.status(404)
+        res.json({msg: 'Incorrect Headers'})
+        res.end();
+      }
       res.type('json')
       res.status(200)
       res.json(songs)
